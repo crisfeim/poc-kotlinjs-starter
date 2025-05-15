@@ -7,19 +7,10 @@ repositories {
 }
 
 kotlin {
-    macosX64("macos") {
-        binaries {
-            framework {
-                baseName = "Shared"
-                isStatic = false
-            }
-        }
-    }
-
     js(IR) {
         browser()
-	binaries.library()
-compilations["main"].compileTaskProvider.configure {
+        binaries.library()
+        compilations["main"].compileTaskProvider.configure {
             kotlinOptions {
                 sourceMap = true
                 moduleKind = "umd"
@@ -29,8 +20,10 @@ compilations["main"].compileTaskProvider.configure {
     }
 
     sourceSets {
-        val commonMain by getting
-        val macosMain by getting
-        val jsMain by getting
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+            }
+        }
     }
 }
