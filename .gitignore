@@ -1,0 +1,19 @@
+# Gradle
+.gradle/
+build/
+
+# Kotlin Native
+.konan/
+
+# IntelliJ / Android Studio 
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# JS 
+node_modules/
