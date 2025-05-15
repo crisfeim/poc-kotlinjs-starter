@@ -1,10 +1,6 @@
-plugins {
-    kotlin("multiplatform") version "1.9.23"
-}
+plugins { kotlin("multiplatform") version "1.9.23" }
 
-repositories {
-    mavenCentral()
-}
+repositories { mavenCentral() }
 
 kotlin {
     js(IR) {
@@ -20,10 +16,15 @@ kotlin {
     }
 
     sourceSets {
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-            }
-        }
+        val jsMain by getting { dependencies { implementation(kotlin("stdlib-js")) } }
     }
+}
+tasks.register<Copy>("copyJsToWebapp") {
+    dependsOn("jsBrowserProductionLibraryDistribution")
+    from("$buildDir/dist/js/productionLibrary")
+    into("$projectDir/webapp/js")
+}
+
+tasks.register("buildJS") {
+    dependsOn("copyJsToWebapp")
 }

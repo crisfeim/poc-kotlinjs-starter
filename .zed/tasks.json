@@ -1,7 +1,7 @@
 [
   {
     "label": "Build JS",
-    "command": "./gradlew jsBrowserProductionLibraryDistribution",
+    "command": "./gradlew buildJS",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always",
@@ -23,7 +23,7 @@
   },
   {
     "label": "Run Server",
-    "command": "php -S localhost:8000 -t build/dist/js/productionLibrary/",
+    "command": "php -S localhost:8000 -t webapp",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always",

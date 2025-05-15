@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Kotlin/JS demo</title>
+    </head>
+    <body>
+        <h1>Your js app here</h1>
+        <script src="kotlin-kotlin-stdlib.js"></script>
+        <script src="kmp.js"></script>
+        <script>
+            window.onload = () => {
+                const result = kmp.shared.printKotlin("Hola world!");
+                console.log(result);
+            };
+        </script>
+    </body>
+</html>
