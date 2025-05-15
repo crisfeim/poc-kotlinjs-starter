@@ -1,1 +1,1 @@
-rootProject.name = "MyKMPProject"
+rootProject.name = "kmp"
